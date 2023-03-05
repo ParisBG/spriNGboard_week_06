@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 void non_const_by_ref (string & s) {
@@ -28,25 +27,22 @@ void const_by_val (string const s) {
   cout << "const_by_val() called on " << s << endl;
   cout << "  &s       = " << &s << endl;
   cout << "  s.size() = " << s.size() << endl;
-  //s.append(" has been modified"); // LINE 2
+ // s.append(" has been modified"); // LINE 2
 }
 
-void overloaded_func (string & s)
-{
+void overloaded_func (string & s){
   cout << "overloaded_func() with non-const ref called on " << s << endl;
 }
 
-void overloaded_func (string const & s)
-{
+void overloaded_func (string const & s){
   cout << "overloaded_func() with const ref called on " << s << endl;
 }
 
-int main ()
-{
+int main (){
   //
   // non-const string experiments
   //
-
+/*
   {
     cout << string(10,'=') << endl;
     string ncs = "non-const string";
@@ -85,7 +81,8 @@ int main ()
 
   {
     cout << string(10,'=') << endl;
-    string ncs = "non-const string";
+    //string ncs = "non-const string";
+    string const ncs = "const string";
     overloaded_func(ncs);
   }
 
@@ -98,7 +95,7 @@ int main ()
     string const cs = "const string";
     cout << "cs before: " << cs << endl;
     cout << "&cs = " << &cs << endl;
-    //non_const_by_ref(cs); // LINE 3
+   // non_const_by_ref(cs); // LINE 3
     cout << "cs after:  " << cs << endl;
   }
 
@@ -110,6 +107,7 @@ int main ()
     non_const_by_val(cs);
     cout << "cs after:  " << cs << endl;
   }
+*/
 
   {
     cout << string(10,'=') << endl;
