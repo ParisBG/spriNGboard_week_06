@@ -1,0 +1,3380 @@
+Determining if the environ exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_83fa0/fast && gmake  -f CMakeFiles/cmTC_83fa0.dir/build.make CMakeFiles/cmTC_83fa0.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_83fa0.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -std=gnu11 -o CMakeFiles/cmTC_83fa0.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘environ’ undeclared (first use in this function)
+   return ((int*)(&environ))[argc];
+                   ^~~~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_83fa0.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_83fa0/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef environ
+  return ((int*)(&environ))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_10250/fast && gmake  -f CMakeFiles/cmTC_10250.dir/build.make CMakeFiles/cmTC_10250.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_10250.dir/src.c.o
+/usr/bin/gcc   -DCMAKE_HAVE_LIBC_PTHREAD -std=gnu11 -o CMakeFiles/cmTC_10250.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_10250
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_10250.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_10250.dir/src.c.o -o cmTC_10250 
+CMakeFiles/cmTC_10250.dir/src.c.o: In function `main':
+src.c:(.text+0x2d): undefined reference to `pthread_create'
+src.c:(.text+0x39): undefined reference to `pthread_detach'
+src.c:(.text+0x45): undefined reference to `pthread_cancel'
+src.c:(.text+0x56): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_10250] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_10250/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_fc0ed/fast && gmake  -f CMakeFiles/cmTC_fc0ed.dir/build.make CMakeFiles/cmTC_fc0ed.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fc0ed.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu11 -o CMakeFiles/cmTC_fc0ed.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fc0ed
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_fc0ed.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_fc0ed.dir/CheckFunctionExists.c.o -o cmTC_fc0ed  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_fc0ed] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_fc0ed/fast] Error 2
+
+
+
+Checking whether CXX compiler has environ in stdlib.h failed to compile with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_24be5/fast && gmake  -f CMakeFiles/cmTC_24be5.dir/build.make CMakeFiles/cmTC_24be5.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_24be5.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_HAS_ENVIRON_IN_STDLIB_H  -std=gnu++1z -o CMakeFiles/cmTC_24be5.dir/kwsysPlatformTestsCXX.cxx.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:53:13: error: ‘environ’ was not declared in this scope
+   char* e = environ[0];
+             ^~~~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:53:13: note: suggested alternative: ‘union’
+   char* e = environ[0];
+             ^~~~~~~
+             union
+gmake[1]: *** [CMakeFiles/cmTC_24be5.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_24be5/fast] Error 2
+
+
+
+Checking whether CXX compiler struct stat has st_mtimespec member failed to compile with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_54f99/fast && gmake  -f CMakeFiles/cmTC_54f99.dir/build.make CMakeFiles/cmTC_54f99.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_54f99.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_STAT_HAS_ST_MTIMESPEC  -std=gnu++1z -o CMakeFiles/cmTC_54f99.dir/kwsysPlatformTestsCXX.cxx.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:26:15: error: ‘struct stat’ has no member named ‘st_mtimespec’; did you mean ‘st_mtim’?
+   (void)stat1.st_mtimespec.tv_sec;
+               ^~~~~~~~~~~~
+               st_mtim
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:27:15: error: ‘struct stat’ has no member named ‘st_mtimespec’; did you mean ‘st_mtim’?
+   (void)stat1.st_mtimespec.tv_nsec;
+               ^~~~~~~~~~~~
+               st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_54f99.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_54f99/fast] Error 2
+
+
+
+Determining if the function connect exists in the socket;dl failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8a62f/fast && gmake  -f CMakeFiles/cmTC_8a62f.dir/build.make CMakeFiles/cmTC_8a62f.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8a62f.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=connect -std=gnu11 -o CMakeFiles/cmTC_8a62f.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8a62f
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_8a62f.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_8a62f.dir/CheckFunctionExists.c.o -o cmTC_8a62f  -lsocket -ldl 
+/usr/bin/ld: cannot find -lsocket
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_8a62f] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_8a62f/fast] Error 2
+
+
+
+Determining if the function recv exists in the network;dl failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_60d86/fast && gmake  -f CMakeFiles/cmTC_60d86.dir/build.make CMakeFiles/cmTC_60d86.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_60d86.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=recv -std=gnu11 -o CMakeFiles/cmTC_60d86.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_60d86
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_60d86.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=recv CMakeFiles/cmTC_60d86.dir/CheckFunctionExists.c.o -o cmTC_60d86  -lnetwork -ldl 
+/usr/bin/ld: cannot find -lnetwork
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_60d86] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_60d86/fast] Error 2
+
+
+
+Determining if the function idn2_lookup_ul exists in the idn2;dl;cmnghttp2 failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_645aa/fast && gmake  -f CMakeFiles/cmTC_645aa.dir/build.make CMakeFiles/cmTC_645aa.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_645aa.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=idn2_lookup_ul -std=gnu11 -o CMakeFiles/cmTC_645aa.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_645aa
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_645aa.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=idn2_lookup_ul CMakeFiles/cmTC_645aa.dir/CheckFunctionExists.c.o -o cmTC_645aa  -lidn2 -ldl -lcmnghttp2 
+/usr/bin/ld: cannot find -lidn2
+/usr/bin/ld: cannot find -lcmnghttp2
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_645aa] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_645aa/fast] Error 2
+
+
+
+Determining if the function dlopen exists in the dl;cmnghttp2 failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_49a0f/fast && gmake  -f CMakeFiles/cmTC_49a0f.dir/build.make CMakeFiles/cmTC_49a0f.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_49a0f.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=dlopen -std=gnu11 -o CMakeFiles/cmTC_49a0f.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_49a0f
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_49a0f.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=dlopen CMakeFiles/cmTC_49a0f.dir/CheckFunctionExists.c.o -o cmTC_49a0f  -ldl -lcmnghttp2 
+/usr/bin/ld: cannot find -lcmnghttp2
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_49a0f] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_49a0f/fast] Error 2
+
+
+
+Determining if files stdio.h;inttypes.h;sys/filio.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b8d03/fast && gmake  -f CMakeFiles/cmTC_b8d03.dir/build.make CMakeFiles/cmTC_b8d03.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b8d03.dir/HAVE_SYS_FILIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_b8d03.dir/HAVE_SYS_FILIO_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c:4:10: fatal error: sys/filio.h: No such file or directory
+ #include <sys/filio.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_b8d03.dir/HAVE_SYS_FILIO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_b8d03/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/filio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/sockio.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b8b81/fast && gmake  -f CMakeFiles/cmTC_b8b81.dir/build.make CMakeFiles/cmTC_b8b81.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b8b81.dir/HAVE_SYS_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_b8b81.dir/HAVE_SYS_SOCKIO_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c:10:10: fatal error: sys/sockio.h: No such file or directory
+ #include <sys/sockio.h>
+          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_b8b81.dir/HAVE_SYS_SOCKIO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_b8b81/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/utime.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_1b43e/fast && gmake  -f CMakeFiles/cmTC_1b43e.dir/build.make CMakeFiles/cmTC_1b43e.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b43e.dir/HAVE_SYS_UTIME_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_1b43e.dir/HAVE_SYS_UTIME_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c:15:10: fatal error: sys/utime.h: No such file or directory
+ #include <sys/utime.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_1b43e.dir/HAVE_SYS_UTIME_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_1b43e/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/utime.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;crypto.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_456db/fast && gmake  -f CMakeFiles/cmTC_456db.dir/build.make CMakeFiles/cmTC_456db.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_456db.dir/HAVE_CRYPTO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_456db.dir/HAVE_CRYPTO_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c:20:10: fatal error: crypto.h: No such file or directory
+ #include <crypto.h>
+          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_456db.dir/HAVE_CRYPTO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_456db/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <crypto.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_968f4/fast && gmake  -f CMakeFiles/cmTC_968f4.dir/build.make CMakeFiles/cmTC_968f4.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_968f4.dir/HAVE_IDN2_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_968f4.dir/HAVE_IDN2_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_IDN2_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_IDN2_H.c:23:10: fatal error: idn2.h: No such file or directory
+ #include <idn2.h>
+          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_968f4.dir/HAVE_IDN2_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_968f4/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;io.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ffaab/fast && gmake  -f CMakeFiles/cmTC_ffaab.dir/build.make CMakeFiles/cmTC_ffaab.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ffaab.dir/HAVE_IO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_ffaab.dir/HAVE_IO_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c:24:10: fatal error: io.h: No such file or directory
+ #include <io.h>
+          ^~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_ffaab.dir/HAVE_IO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_ffaab/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <io.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;krb.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ed7f8/fast && gmake  -f CMakeFiles/cmTC_ed7f8.dir/build.make CMakeFiles/cmTC_ed7f8.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ed7f8.dir/HAVE_KRB_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_ed7f8.dir/HAVE_KRB_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c:24:10: fatal error: krb.h: No such file or directory
+ #include <krb.h>
+          ^~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_ed7f8.dir/HAVE_KRB_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_ed7f8/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <krb.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;pem.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_1a9b2/fast && gmake  -f CMakeFiles/cmTC_1a9b2.dir/build.make CMakeFiles/cmTC_1a9b2.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1a9b2.dir/HAVE_PEM_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_1a9b2.dir/HAVE_PEM_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c:30:10: fatal error: pem.h: No such file or directory
+ #include <pem.h>
+          ^~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_1a9b2.dir/HAVE_PEM_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_1a9b2/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <pem.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;rsa.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_18ffd/fast && gmake  -f CMakeFiles/cmTC_18ffd.dir/build.make CMakeFiles/cmTC_18ffd.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_18ffd.dir/HAVE_RSA_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_18ffd.dir/HAVE_RSA_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c:32:10: fatal error: rsa.h: No such file or directory
+ #include <rsa.h>
+          ^~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_18ffd.dir/HAVE_RSA_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_18ffd/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <rsa.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;ssl.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9fb71/fast && gmake  -f CMakeFiles/cmTC_9fb71.dir/build.make CMakeFiles/cmTC_9fb71.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9fb71.dir/HAVE_SSL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_9fb71.dir/HAVE_SSL_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c:35:10: fatal error: ssl.h: No such file or directory
+ #include <ssl.h>
+          ^~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_9fb71.dir/HAVE_SSL_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9fb71/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <ssl.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_368a2/fast && gmake  -f CMakeFiles/cmTC_368a2.dir/build.make CMakeFiles/cmTC_368a2.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_368a2.dir/HAVE_STROPTS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_368a2.dir/HAVE_STROPTS_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_STROPTS_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_STROPTS_H.c:41:10: fatal error: stropts.h: No such file or directory
+ #include <stropts.h>
+          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_368a2.dir/HAVE_STROPTS_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_368a2/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;x509.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_56db1/fast && gmake  -f CMakeFiles/cmTC_56db1.dir/build.make CMakeFiles/cmTC_56db1.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_56db1.dir/HAVE_X509_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_56db1.dir/HAVE_X509_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c:46:10: fatal error: x509.h: No such file or directory
+ #include <x509.h>
+          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_56db1.dir/HAVE_X509_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_56db1/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <x509.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;process.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9f9a9/fast && gmake  -f CMakeFiles/cmTC_9f9a9.dir/build.make CMakeFiles/cmTC_9f9a9.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9f9a9.dir/HAVE_PROCESS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_9f9a9.dir/HAVE_PROCESS_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c:46:10: fatal error: process.h: No such file or directory
+ #include <process.h>
+          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_9f9a9.dir/HAVE_PROCESS_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9f9a9/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <process.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;stddef.h;dlfcn.h;malloc.h;memory.h;netinet/if_ether.h;stdint.h;sockio.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_0ae78/fast && gmake  -f CMakeFiles/cmTC_0ae78.dir/build.make CMakeFiles/cmTC_0ae78.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ae78.dir/HAVE_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_0ae78.dir/HAVE_SOCKIO_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c:52:10: fatal error: sockio.h: No such file or directory
+ #include <sockio.h>
+          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_0ae78.dir/HAVE_SOCKIO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_0ae78/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if the stricmp exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c129b/fast && gmake  -f CMakeFiles/cmTC_c129b.dir/build.make CMakeFiles/cmTC_c129b.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c129b.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_c129b.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘stricmp’ undeclared (first use in this function); did you mean ‘strncmp’?
+   return ((int*)(&stricmp))[argc];
+                   ^~~~~~~
+                   strncmp
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_c129b.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c129b/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef stricmp
+  return ((int*)(&stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcmpi exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7a6f8/fast && gmake  -f CMakeFiles/cmTC_7a6f8.dir/build.make CMakeFiles/cmTC_7a6f8.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7a6f8.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7a6f8.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘strcmpi’ undeclared (first use in this function); did you mean ‘strcmp’?
+   return ((int*)(&strcmpi))[argc];
+                   ^~~~~~~
+                   strcmp
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_7a6f8.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7a6f8/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmpi
+  return ((int*)(&strcmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncmpi exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_e2aa8/fast && gmake  -f CMakeFiles/cmTC_e2aa8.dir/build.make CMakeFiles/cmTC_e2aa8.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e2aa8.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_e2aa8.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘strncmpi’ undeclared (first use in this function); did you mean ‘strncmp’?
+   return ((int*)(&strncmpi))[argc];
+                   ^~~~~~~~
+                   strncmp
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_e2aa8.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_e2aa8/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncmpi
+  return ((int*)(&strncmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the inet_ntoa_r exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7a8a9/fast && gmake  -f CMakeFiles/cmTC_7a8a9.dir/build.make CMakeFiles/cmTC_7a8a9.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7a8a9.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7a8a9.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   return ((int*)(&inet_ntoa_r))[argc];
+                   ^~~~~~~~~~~
+                   inet_ntoa
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_7a8a9.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7a8a9/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef inet_ntoa_r
+  return ((int*)(&inet_ntoa_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the closesocket exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_642c5/fast && gmake  -f CMakeFiles/cmTC_642c5.dir/build.make CMakeFiles/cmTC_642c5.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_642c5.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_642c5.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘closesocket’ undeclared (first use in this function); did you mean ‘socket’?
+   return ((int*)(&closesocket))[argc];
+                   ^~~~~~~~~~~
+                   socket
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_642c5.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_642c5/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef closesocket
+  return ((int*)(&closesocket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpass_r exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_aea06/fast && gmake  -f CMakeFiles/cmTC_aea06.dir/build.make CMakeFiles/cmTC_aea06.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aea06.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_aea06.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘getpass_r’ undeclared (first use in this function); did you mean ‘getpass’?
+   return ((int*)(&getpass_r))[argc];
+                   ^~~~~~~~~
+                   getpass
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_aea06.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_aea06/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpass_r
+  return ((int*)(&getpass_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f5abb/fast && gmake  -f CMakeFiles/cmTC_f5abb.dir/build.make CMakeFiles/cmTC_f5abb.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f5abb.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f5abb.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘strlcat’ undeclared (first use in this function); did you mean ‘strncat’?
+   return ((int*)(&strlcat))[argc];
+                   ^~~~~~~
+                   strncat
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_f5abb.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f5abb/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strtoi64 exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7b563/fast && gmake  -f CMakeFiles/cmTC_7b563.dir/build.make CMakeFiles/cmTC_7b563.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b563.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7b563.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘_strtoi64’ undeclared (first use in this function); did you mean ‘strtoull’?
+   return ((int*)(&_strtoi64))[argc];
+                   ^~~~~~~~~
+                   strtoull
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_7b563.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7b563/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strtoi64
+  return ((int*)(&_strtoi64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setmode exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b5129/fast && gmake  -f CMakeFiles/cmTC_b5129.dir/build.make CMakeFiles/cmTC_b5129.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b5129.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_b5129.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘setmode’ undeclared (first use in this function); did you mean ‘setgid’?
+   return ((int*)(&setmode))[argc];
+                   ^~~~~~~
+                   setgid
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_b5129.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_b5129/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setmode
+  return ((int*)(&setmode))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function mach_absolute_time exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f69f3/fast && gmake  -f CMakeFiles/cmTC_f69f3.dir/build.make CMakeFiles/cmTC_f69f3.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f69f3.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time -std=gnu11 -o CMakeFiles/cmTC_f69f3.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f69f3
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_f69f3.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time CMakeFiles/cmTC_f69f3.dir/CheckFunctionExists.c.o -o cmTC_f69f3 
+CMakeFiles/cmTC_f69f3.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `mach_absolute_time'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_f69f3] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f69f3/fast] Error 2
+
+
+
+Performing Curl Test HAVE_FSETXATTR_6 failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_99bb0/fast && gmake  -f CMakeFiles/cmTC_99bb0.dir/build.make CMakeFiles/cmTC_99bb0.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_99bb0.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_FSETXATTR_6  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_99bb0.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:544:3: error: too many arguments to function ‘fsetxattr’
+   fsetxattr(0, 0, 0, 0, 0, 0);
+   ^~~~~~~~~
+In file included from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:541:0:
+/usr/include/sys/xattr.h:54:12: note: declared here
+ extern int fsetxattr (int __fd, const char *__name, const void *__value,
+            ^~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_99bb0.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_99bb0/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7c261/fast && gmake  -f CMakeFiles/cmTC_7c261.dir/build.make CMakeFiles/cmTC_7c261.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7c261.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_7c261.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:326:44: error: ‘FIONBIO’ undeclared (first use in this function)
+  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+                                            ^~~~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:326:44: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_7c261.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7c261/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_955b8/fast && gmake  -f CMakeFiles/cmTC_955b8.dir/build.make CMakeFiles/cmTC_955b8.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_955b8.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_955b8.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_955b8
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_955b8.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_955b8.dir/CurlTests.c.o -o cmTC_955b8 
+CMakeFiles/cmTC_955b8.dir/CurlTests.c.o: In function `main':
+CurlTests.c:(.text+0x19): undefined reference to `IoctlSocket'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_955b8] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_955b8/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_a887c/fast && gmake  -f CMakeFiles/cmTC_a887c.dir/build.make CMakeFiles/cmTC_a887c.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a887c.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_a887c.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:382:32: error: ‘FIONBIO’ undeclared (first use in this function)
+         if(0 != ioctlsocket(0, FIONBIO, &flags))
+                                ^~~~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:382:32: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_a887c.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_a887c/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_10f31/fast && gmake  -f CMakeFiles/cmTC_10f31.dir/build.make CMakeFiles/cmTC_10f31.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_10f31.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_10f31.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:409:32: error: ‘FIONBIO’ undeclared (first use in this function)
+         if(0 != ioctlsocket(0, FIONBIO, &flags))
+                                ^~~~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:409:32: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_10f31.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_10f31/fast] Error 2
+
+
+Performing Curl Test HAVE_SETSOCKOPT_SO_NONBLOCK failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9ab9e/fast && gmake  -f CMakeFiles/cmTC_9ab9e.dir/build.make CMakeFiles/cmTC_9ab9e.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9ab9e.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_9ab9e.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:505:43: error: ‘SO_NONBLOCK’ undeclared (first use in this function); did you mean ‘SOCK_NONBLOCK’?
+         if(0 != setsockopt(0, SOL_SOCKET, SO_NONBLOCK, 0, 0))
+                                           ^~~~~~~~~~~
+                                           SOCK_NONBLOCK
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:505:43: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_9ab9e.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9ab9e/fast] Error 2
+
+
+Performing Curl Test HAVE_O_NONBLOCK failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_73f05/fast && gmake  -f CMakeFiles/cmTC_73f05.dir/build.make CMakeFiles/cmTC_73f05.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_73f05.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_73f05.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_73f05
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_73f05.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_73f05.dir/CurlTests.c.o -o cmTC_73f05 
+/usr/lib/gcc/x86_64-redhat-linux/7/../../../../lib64/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_73f05] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_73f05/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5 failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_36b36/fast && gmake  -f CMakeFiles/cmTC_36b36.dir/build.make CMakeFiles/cmTC_36b36.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_36b36.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_36b36.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_36b36.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_36b36/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7 failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f91df/fast && gmake  -f CMakeFiles/cmTC_f91df.dir/build.make CMakeFiles/cmTC_f91df.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f91df.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_7  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_f91df.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_f91df.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f91df/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5_REENTRANT failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9dea4/fast && gmake  -f CMakeFiles/cmTC_9dea4.dir/build.make CMakeFiles/cmTC_9dea4.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9dea4.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_9dea4.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_9dea4.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9dea4/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7_REENTRANT failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_edbc5/fast && gmake  -f CMakeFiles/cmTC_edbc5.dir/build.make CMakeFiles/cmTC_edbc5.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_edbc5.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_7_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_edbc5.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_edbc5.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_edbc5/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3 failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ae39c/fast && gmake  -f CMakeFiles/cmTC_ae39c.dir/build.make CMakeFiles/cmTC_ae39c.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae39c.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_ae39c.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_ae39c.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_ae39c/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5 failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ba66f/fast && gmake  -f CMakeFiles/cmTC_ba66f.dir/build.make CMakeFiles/cmTC_ba66f.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ba66f.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_ba66f.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_ba66f.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_ba66f/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3_REENTRANT failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9e1b3/fast && gmake  -f CMakeFiles/cmTC_9e1b3.dir/build.make CMakeFiles/cmTC_9e1b3.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9e1b3.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_9e1b3.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_9e1b3.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9e1b3/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5_REENTRANT failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c5161/fast && gmake  -f CMakeFiles/cmTC_c5161.dir/build.make CMakeFiles/cmTC_c5161.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c5161.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_c5161.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_c5161.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c5161/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6bb1e/fast && gmake  -f CMakeFiles/cmTC_6bb1e.dir/build.make CMakeFiles/cmTC_6bb1e.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6bb1e.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_INET_NTOA_R_DECL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_6bb1e.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:244:21: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   func = (func_type)inet_ntoa_r;
+                     ^~~~~~~~~~~
+                     inet_ntoa
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:244:21: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_6bb1e.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_6bb1e/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL_REENTRANT failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_14bad/fast && gmake  -f CMakeFiles/cmTC_14bad.dir/build.make CMakeFiles/cmTC_14bad.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_14bad.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_INET_NTOA_R_DECL_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_14bad.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:260:22: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   func = (func_type)&inet_ntoa_r;
+                      ^~~~~~~~~~~
+                      inet_ntoa
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:260:22: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_14bad.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_14bad/fast] Error 2
+
+
+Performing Curl Test HAVE_GLIBC_STRERROR_R failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_aa7ee/fast && gmake  -f CMakeFiles/cmTC_aa7ee.dir/build.make CMakeFiles/cmTC_aa7ee.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aa7ee.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GLIBC_STRERROR_R  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_aa7ee.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:521:51: error: subscripted value is neither array nor pointer nor vector
+   check(strerror_r(EACCES, buffer, sizeof(buffer))[0]);
+                                                   ^
+gmake[1]: *** [CMakeFiles/cmTC_aa7ee.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_aa7ee/fast] Error 2
+
+
+Performing Curl Test HAVE_BUILTIN_AVAILABLE failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c5cb7/fast && gmake  -f CMakeFiles/cmTC_c5cb7.dir/build.make CMakeFiles/cmTC_c5cb7.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c5cb7.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_BUILTIN_AVAILABLE  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_c5cb7.dir/CurlTests.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:568:26: error: ‘macOS’ undeclared (first use in this function)
+   if(__builtin_available(macOS 10.12, *)) {}
+                          ^~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:568:26: note: each undeclared identifier is reported only once for each function it appears in
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:568:32: error: expected ‘)’ before numeric constant
+   if(__builtin_available(macOS 10.12, *)) {}
+                                ^~~~~
+gmake[1]: *** [CMakeFiles/cmTC_c5cb7.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c5cb7/fast] Error 2
+
+
+Determining if the arc4random_buf exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_92cdc/fast && gmake  -f CMakeFiles/cmTC_92cdc.dir/build.make CMakeFiles/cmTC_92cdc.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_92cdc.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_92cdc.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random_buf’ undeclared (first use in this function); did you mean ‘srandom_r’?
+   return ((int*)(&arc4random_buf))[argc];
+                   ^~~~~~~~~~~~~~
+                   srandom_r
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_92cdc.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_92cdc/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random_buf
+  return ((int*)(&arc4random_buf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the arc4random exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_013ef/fast && gmake  -f CMakeFiles/cmTC_013ef.dir/build.make CMakeFiles/cmTC_013ef.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_013ef.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_013ef.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random’ undeclared (first use in this function); did you mean ‘srandom’?
+   return ((int*)(&arc4random))[argc];
+                   ^~~~~~~~~~
+                   srandom
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_013ef.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_013ef/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if files sys/types.h;ctype.h;copyfile.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8e51b/fast && gmake  -f CMakeFiles/cmTC_8e51b.dir/build.make CMakeFiles/cmTC_8e51b.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8e51b.dir/HAVE_COPYFILE_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_8e51b.dir/HAVE_COPYFILE_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c:4:10: fatal error: copyfile.h: No such file or directory
+ #include <copyfile.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_8e51b.dir/HAVE_COPYFILE_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_8e51b/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <copyfile.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;direct.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_49d74/fast && gmake  -f CMakeFiles/cmTC_49d74.dir/build.make CMakeFiles/cmTC_49d74.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_49d74.dir/HAVE_DIRECT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_49d74.dir/HAVE_DIRECT_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c:4:10: fatal error: direct.h: No such file or directory
+ #include <direct.h>
+          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_49d74.dir/HAVE_DIRECT_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_49d74/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <direct.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_3e0db/fast && gmake  -f CMakeFiles/cmTC_3e0db.dir/build.make CMakeFiles/cmTC_3e0db.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3e0db.dir/HAVE_EXT2FS_EXT2_FS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_3e0db.dir/HAVE_EXT2FS_EXT2_FS_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c:6:10: fatal error: ext2fs/ext2_fs.h: No such file or directory
+ #include <ext2fs/ext2_fs.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_3e0db.dir/HAVE_EXT2FS_EXT2_FS_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_3e0db/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test HAVE_WORKING_EXT2_IOC_GETFLAGS failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b2704/fast && gmake  -f CMakeFiles/cmTC_b2704.dir/build.make CMakeFiles/cmTC_b2704.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b2704.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_WORKING_EXT2_IOC_GETFLAGS -std=gnu11 -o CMakeFiles/cmTC_b2704.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:2:10: fatal error: ext2fs/ext2_fs.h: No such file or directory
+ #include <ext2fs/ext2_fs.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_b2704.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_b2704/fast] Error 2
+
+
+Source file was:
+#include <sys/ioctl.h>
+#include <ext2fs/ext2_fs.h>
+int main(void) { return EXT2_IOC_GETFLAGS; }
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;membership.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f3431/fast && gmake  -f CMakeFiles/cmTC_f3431.dir/build.make CMakeFiles/cmTC_f3431.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f3431.dir/HAVE_MEMBERSHIP_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f3431.dir/HAVE_MEMBERSHIP_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c:15:10: fatal error: membership.h: No such file or directory
+ #include <membership.h>
+          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f3431.dir/HAVE_MEMBERSHIP_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f3431/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <membership.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;readpassphrase.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_5614d/fast && gmake  -f CMakeFiles/cmTC_5614d.dir/build.make CMakeFiles/cmTC_5614d.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5614d.dir/HAVE_READPASSPHRASE_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_5614d.dir/HAVE_READPASSPHRASE_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c:20:10: fatal error: readpassphrase.h: No such file or directory
+ #include <readpassphrase.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_5614d.dir/HAVE_READPASSPHRASE_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_5614d/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <readpassphrase.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f3f27/fast && gmake  -f CMakeFiles/cmTC_f3f27.dir/build.make CMakeFiles/cmTC_f3f27.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f3f27.dir/HAVE_SYS_ACL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f3f27.dir/HAVE_SYS_ACL_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c:27:10: fatal error: sys/acl.h: No such file or directory
+ #include <sys/acl.h>
+          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f3f27.dir/HAVE_SYS_ACL_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f3f27/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/extattr.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8674b/fast && gmake  -f CMakeFiles/cmTC_8674b.dir/build.make CMakeFiles/cmTC_8674b.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8674b.dir/HAVE_SYS_EXTATTR_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_8674b.dir/HAVE_SYS_EXTATTR_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c:28:10: fatal error: sys/extattr.h: No such file or directory
+ #include <sys/extattr.h>
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_8674b.dir/HAVE_SYS_EXTATTR_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_8674b/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/extattr.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mkdev.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_98943/fast && gmake  -f CMakeFiles/cmTC_98943.dir/build.make CMakeFiles/cmTC_98943.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_98943.dir/HAVE_SYS_MKDEV_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_98943.dir/HAVE_SYS_MKDEV_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c:29:10: fatal error: sys/mkdev.h: No such file or directory
+ #include <sys/mkdev.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_98943.dir/HAVE_SYS_MKDEV_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_98943/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c1c6a/fast && gmake  -f CMakeFiles/cmTC_c1c6a.dir/build.make CMakeFiles/cmTC_c1c6a.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c1c6a.dir/HAVE_SYS_MOUNT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_c1c6a.dir/HAVE_SYS_MOUNT_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c
+In file included from /usr/include/linux/fs.h:19:0,
+                 from /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c:12:
+/usr/include/sys/mount.h:35:3: error: expected identifier before numeric constant
+   MS_RDONLY = 1,  /* Mount read-only.  */
+   ^
+gmake[1]: *** [CMakeFiles/cmTC_c1c6a.dir/HAVE_SYS_MOUNT_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c1c6a/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/richacl.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_0f3c7/fast && gmake  -f CMakeFiles/cmTC_0f3c7.dir/build.make CMakeFiles/cmTC_0f3c7.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0f3c7.dir/HAVE_SYS_RICHACL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_0f3c7.dir/HAVE_SYS_RICHACL_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c:31:10: fatal error: sys/richacl.h: No such file or directory
+ #include <sys/richacl.h>
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_0f3c7.dir/HAVE_SYS_RICHACL_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_0f3c7/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/richacl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;windows.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7d059/fast && gmake  -f CMakeFiles/cmTC_7d059.dir/build.make CMakeFiles/cmTC_7d059.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7d059.dir/HAVE_WINDOWS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7d059.dir/HAVE_WINDOWS_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c:46:10: fatal error: windows.h: No such file or directory
+ #include <windows.h>
+          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_7d059.dir/HAVE_WINDOWS_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7d059/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <windows.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;wincrypt.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_5ad2e/fast && gmake  -f CMakeFiles/cmTC_5ad2e.dir/build.make CMakeFiles/cmTC_5ad2e.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5ad2e.dir/HAVE_WINCRYPT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_5ad2e.dir/HAVE_WINCRYPT_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c:46:10: fatal error: wincrypt.h: No such file or directory
+ #include <wincrypt.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_5ad2e.dir/HAVE_WINCRYPT_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_5ad2e/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <wincrypt.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;winioctl.h exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f55ee/fast && gmake  -f CMakeFiles/cmTC_f55ee.dir/build.make CMakeFiles/cmTC_f55ee.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f55ee.dir/HAVE_WINIOCTL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f55ee.dir/HAVE_WINIOCTL_H.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c:46:10: fatal error: winioctl.h: No such file or directory
+ #include <winioctl.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f55ee.dir/HAVE_WINIOCTL_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f55ee/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <winioctl.h>
+
+
+int main(void){return 0;}
+
+Determining if the function MD5Init exists in the md failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9b80a/fast && gmake  -f CMakeFiles/cmTC_9b80a.dir/build.make CMakeFiles/cmTC_9b80a.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9b80a.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=MD5Init -std=gnu11 -o CMakeFiles/cmTC_9b80a.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9b80a
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_9b80a.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=MD5Init CMakeFiles/cmTC_9b80a.dir/CheckFunctionExists.c.o -o cmTC_9b80a  -lmd 
+/usr/bin/ld: cannot find -lmd
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_9b80a] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9b80a/fast] Error 2
+
+
+
+Determining if the function getvfsbyname exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_1ec73/fast && gmake  -f CMakeFiles/cmTC_1ec73.dir/build.make CMakeFiles/cmTC_1ec73.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1ec73.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_1ec73.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1ec73
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_1ec73.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin CMakeFiles/cmTC_1ec73.dir/CheckFunctionExists.c.o -o cmTC_1ec73 
+CMakeFiles/cmTC_1ec73.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `getvfsbyname'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_1ec73] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_1ec73/fast] Error 2
+
+
+
+Determining if the function lchflags exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d8fca/fast && gmake  -f CMakeFiles/cmTC_d8fca.dir/build.make CMakeFiles/cmTC_d8fca.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8fca.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_d8fca.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d8fca
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_d8fca.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin CMakeFiles/cmTC_d8fca.dir/CheckFunctionExists.c.o -o cmTC_d8fca 
+CMakeFiles/cmTC_d8fca.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `lchflags'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_d8fca] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_d8fca/fast] Error 2
+
+
+
+Determining if the function readpassphrase exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7ac67/fast && gmake  -f CMakeFiles/cmTC_7ac67.dir/build.make CMakeFiles/cmTC_7ac67.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7ac67.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_7ac67.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7ac67
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_7ac67.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin CMakeFiles/cmTC_7ac67.dir/CheckFunctionExists.c.o -o cmTC_7ac67 
+CMakeFiles/cmTC_7ac67.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `readpassphrase'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_7ac67] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7ac67/fast] Error 2
+
+
+
+Determining if the function strncpy_s exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7742e/fast && gmake  -f CMakeFiles/cmTC_7742e.dir/build.make CMakeFiles/cmTC_7742e.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7742e.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_7742e.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7742e
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_7742e.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin CMakeFiles/cmTC_7742e.dir/CheckFunctionExists.c.o -o cmTC_7742e 
+CMakeFiles/cmTC_7742e.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `strncpy_s'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_7742e] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7742e/fast] Error 2
+
+
+
+Determining if the function _ctime64_s exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d4b9f/fast && gmake  -f CMakeFiles/cmTC_d4b9f.dir/build.make CMakeFiles/cmTC_d4b9f.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d4b9f.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_d4b9f.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d4b9f
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_d4b9f.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin CMakeFiles/cmTC_d4b9f.dir/CheckFunctionExists.c.o -o cmTC_d4b9f 
+CMakeFiles/cmTC_d4b9f.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_ctime64_s'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_d4b9f] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_d4b9f/fast] Error 2
+
+
+
+Determining if the function _fseeki64 exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8e5d0/fast && gmake  -f CMakeFiles/cmTC_8e5d0.dir/build.make CMakeFiles/cmTC_8e5d0.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8e5d0.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_8e5d0.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8e5d0
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_8e5d0.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin CMakeFiles/cmTC_8e5d0.dir/CheckFunctionExists.c.o -o cmTC_8e5d0 
+CMakeFiles/cmTC_8e5d0.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_fseeki64'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_8e5d0] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_8e5d0/fast] Error 2
+
+
+
+Determining if the function _get_timezone exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_81c8d/fast && gmake  -f CMakeFiles/cmTC_81c8d.dir/build.make CMakeFiles/cmTC_81c8d.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_81c8d.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_81c8d.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_81c8d
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_81c8d.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin CMakeFiles/cmTC_81c8d.dir/CheckFunctionExists.c.o -o cmTC_81c8d 
+CMakeFiles/cmTC_81c8d.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_get_timezone'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_81c8d] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_81c8d/fast] Error 2
+
+
+
+Determining if the function _gmtime64_s exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8e88f/fast && gmake  -f CMakeFiles/cmTC_8e88f.dir/build.make CMakeFiles/cmTC_8e88f.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8e88f.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_8e88f.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8e88f
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_8e88f.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin CMakeFiles/cmTC_8e88f.dir/CheckFunctionExists.c.o -o cmTC_8e88f 
+CMakeFiles/cmTC_8e88f.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_gmtime64_s'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_8e88f] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_8e88f/fast] Error 2
+
+
+
+Determining if the function _localtime64_s exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_3f8a5/fast && gmake  -f CMakeFiles/cmTC_3f8a5.dir/build.make CMakeFiles/cmTC_3f8a5.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3f8a5.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_3f8a5.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3f8a5
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_3f8a5.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin CMakeFiles/cmTC_3f8a5.dir/CheckFunctionExists.c.o -o cmTC_3f8a5 
+CMakeFiles/cmTC_3f8a5.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_localtime64_s'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_3f8a5] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_3f8a5/fast] Error 2
+
+
+
+Determining if the function _mkgmtime64 exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_48c1c/fast && gmake  -f CMakeFiles/cmTC_48c1c.dir/build.make CMakeFiles/cmTC_48c1c.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_48c1c.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_48c1c.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_48c1c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_48c1c.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin CMakeFiles/cmTC_48c1c.dir/CheckFunctionExists.c.o -o cmTC_48c1c 
+CMakeFiles/cmTC_48c1c.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_mkgmtime64'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_48c1c] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_48c1c/fast] Error 2
+
+
+
+Determining if the function cygwin_conv_path exists failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_29a51/fast && gmake  -f CMakeFiles/cmTC_29a51.dir/build.make CMakeFiles/cmTC_29a51.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_29a51.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_29a51.dir/CheckFunctionExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_29a51
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_29a51.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin CMakeFiles/cmTC_29a51.dir/CheckFunctionExists.c.o -o cmTC_29a51 
+CMakeFiles/cmTC_29a51.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `cygwin_conv_path'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_29a51] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_29a51/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_VFSCONF failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_0fd42/fast && gmake  -f CMakeFiles/cmTC_0fd42.dir/build.make CMakeFiles/cmTC_0fd42.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0fd42.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_VFSCONF -std=gnu11 -o CMakeFiles/cmTC_0fd42.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:3:33: error: storage size of ‘v’ isn’t known
+ int main(void) { struct vfsconf v; return sizeof(v);}
+                                 ^
+gmake[1]: *** [CMakeFiles/cmTC_0fd42.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_0fd42/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct vfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test HAVE_STRUCT_XVFSCONF failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_2055a/fast && gmake  -f CMakeFiles/cmTC_2055a.dir/build.make CMakeFiles/cmTC_2055a.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2055a.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_XVFSCONF -std=gnu11 -o CMakeFiles/cmTC_2055a.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:3:34: error: storage size of ‘v’ isn’t known
+ int main(void) { struct xvfsconf v; return sizeof(v);}
+                                  ^
+gmake[1]: *** [CMakeFiles/cmTC_2055a.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_2055a/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct xvfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test MAJOR_IN_MKDEV failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_991ef/fast && gmake  -f CMakeFiles/cmTC_991ef.dir/build.make CMakeFiles/cmTC_991ef.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_991ef.dir/src.c.o
+/usr/bin/gcc   -w -DMAJOR_IN_MKDEV -std=gnu11 -o CMakeFiles/cmTC_991ef.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: sys/mkdev.h: No such file or directory
+ #include <sys/mkdev.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_991ef.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_991ef/fast] Error 2
+
+
+Source file was:
+#include <sys/mkdev.h>
+int main() { return major(256); }
+Performing C SOURCE FILE Test HAVE_LZMA_STREAM_ENCODER_MT failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_076e8/fast && gmake  -f CMakeFiles/cmTC_076e8.dir/build.make CMakeFiles/cmTC_076e8.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_076e8.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_LZMA_STREAM_ENCODER_MT -std=gnu11 -o CMakeFiles/cmTC_076e8.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: lzma.h: No such file or directory
+ #include <lzma.h>
+          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_076e8.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_076e8/fast] Error 2
+
+
+Source file was:
+#include <lzma.h>
+#if LZMA_VERSION < 50020000
+#error unsupported
+#endif
+int main(void){lzma_stream_encoder_mt(0, 0); return 0;}
+Determining if the EFTYPE exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7b3e9/fast && gmake  -f CMakeFiles/cmTC_7b3e9.dir/build.make CMakeFiles/cmTC_7b3e9.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b3e9.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7b3e9.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘EFTYPE’ undeclared (first use in this function); did you mean ‘ESPIPE’?
+   return ((int*)(&EFTYPE))[argc];
+                   ^~~~~~
+                   ESPIPE
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_7b3e9.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7b3e9/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <errno.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef EFTYPE
+  return ((int*)(&EFTYPE))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the D_MD_ORDER exist failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_cd08b/fast && gmake  -f CMakeFiles/cmTC_cd08b.dir/build.make CMakeFiles/cmTC_cd08b.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cd08b.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_cd08b.dir/CheckSymbolExists.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘D_MD_ORDER’ undeclared (first use in this function)
+   return ((int*)(&D_MD_ORDER))[argc];
+                   ^~~~~~~~~~
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_cd08b.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_cd08b/fast] Error 2
+
+
+File /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <langinfo.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef D_MD_ORDER
+  return ((int*)(&D_MD_ORDER))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STRUCT_TM___TM_GMTOFF failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c7ca6/fast && gmake  -f CMakeFiles/cmTC_c7ca6.dir/build.make CMakeFiles/cmTC_c7ca6.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c7ca6.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_TM___TM_GMTOFF -std=gnu11 -o CMakeFiles/cmTC_c7ca6.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:6:34: error: ‘struct tm’ has no member named ‘__tm_gmtoff’; did you mean ‘tm_gmtoff’?
+   (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+                                  ^~~~~~~~~~~
+                                  tm_gmtoff
+gmake[1]: *** [CMakeFiles/cmTC_c7ca6.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c7ca6/fast] Error 2
+
+
+Source file was:
+
+#include <time.h>
+
+int main()
+{
+  (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATFS_F_NAMEMAX failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9bd19/fast && gmake  -f CMakeFiles/cmTC_9bd19.dir/build.make CMakeFiles/cmTC_9bd19.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9bd19.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STATFS_F_NAMEMAX -std=gnu11 -o CMakeFiles/cmTC_9bd19.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: dereferencing pointer to incomplete type ‘struct statfs’
+   (void)sizeof(((struct statfs *)0)->f_namemax);
+                                    ^~
+gmake[1]: *** [CMakeFiles/cmTC_9bd19.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9bd19/fast] Error 2
+
+
+Source file was:
+
+#include <sys/param.h>
+#include <sys/mount.h>
+
+int main()
+{
+  (void)sizeof(((struct statfs *)0)->f_namemax);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIME failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7650f/fast && gmake  -f CMakeFiles/cmTC_7650f.dir/build.make CMakeFiles/cmTC_7650f.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7650f.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_BIRTHTIME -std=gnu11 -o CMakeFiles/cmTC_7650f.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_birthtime’; did you mean ‘st_blksize’?
+   (void)sizeof(((struct stat *)0)->st_birthtime);
+                                    ^~~~~~~~~~~~
+                                    st_blksize
+gmake[1]: *** [CMakeFiles/cmTC_7650f.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7650f/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_686cd/fast && gmake  -f CMakeFiles/cmTC_686cd.dir/build.make CMakeFiles/cmTC_686cd.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_686cd.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC -std=gnu11 -o CMakeFiles/cmTC_686cd.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_birthtimespec’
+   (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+                                  ^~
+gmake[1]: *** [CMakeFiles/cmTC_686cd.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_686cd/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_edf34/fast && gmake  -f CMakeFiles/cmTC_edf34.dir/build.make CMakeFiles/cmTC_edf34.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_edf34.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC -std=gnu11 -o CMakeFiles/cmTC_edf34.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtimespec’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+                                    ^~~~~~~~~~~~
+                                    st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_edf34.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_edf34/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_N failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_65eb4/fast && gmake  -f CMakeFiles/cmTC_65eb4.dir/build.make CMakeFiles/cmTC_65eb4.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_65eb4.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_MTIME_N -std=gnu11 -o CMakeFiles/cmTC_65eb4.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtime_n’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_mtime_n);
+                                    ^~~~~~~~~~
+                                    st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_65eb4.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_65eb4/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_n);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_UMTIME failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f7f1b/fast && gmake  -f CMakeFiles/cmTC_f7f1b.dir/build.make CMakeFiles/cmTC_f7f1b.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f7f1b.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_UMTIME -std=gnu11 -o CMakeFiles/cmTC_f7f1b.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_umtime’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_umtime);
+                                    ^~~~~~~~~
+                                    st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_f7f1b.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f7f1b/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_umtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_USEC failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_4e449/fast && gmake  -f CMakeFiles/cmTC_4e449.dir/build.make CMakeFiles/cmTC_4e449.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4e449.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_MTIME_USEC -std=gnu11 -o CMakeFiles/cmTC_4e449.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtime_usec’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_mtime_usec);
+                                    ^~~~~~~~~~~~~
+                                    st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_4e449.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_4e449/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_usec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_FLAGS failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_694e3/fast && gmake  -f CMakeFiles/cmTC_694e3.dir/build.make CMakeFiles/cmTC_694e3.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_694e3.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_FLAGS -std=gnu11 -o CMakeFiles/cmTC_694e3.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_flags’; did you mean ‘st_nlink’?
+   (void)sizeof(((struct stat *)0)->st_flags);
+                                    ^~~~~~~~
+                                    st_nlink
+gmake[1]: *** [CMakeFiles/cmTC_694e3.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_694e3/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_flags);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATVFS_F_IOSIZE failed with the following output:
+Change Dir: /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_69ea6/fast && gmake  -f CMakeFiles/cmTC_69ea6.dir/build.make CMakeFiles/cmTC_69ea6.dir/build
+gmake[1]: Entering directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_69ea6.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STATVFS_F_IOSIZE -std=gnu11 -o CMakeFiles/cmTC_69ea6.dir/src.c.o -c /home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:39: error: ‘struct statvfs’ has no member named ‘f_iosize’; did you mean ‘f_bsize’?
+   (void)sizeof(((struct statvfs *)0)->f_iosize);
+                                       ^~~~~~~~
+                                       f_bsize
+gmake[1]: *** [CMakeFiles/cmTC_69ea6.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_69ea6/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/statvfs.h>
+
+int main()
+{
+  (void)sizeof(((struct statvfs *)0)->f_iosize);
+  return 0;
+}
+
+Looking for a Fortran compiler failed with the following output:
+-- The Fortran compiler identification is unknown
+CMake Error at CMakeLists.txt:2 (project):
+  No CMAKE_Fortran_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting either the environment
+  variable "FC" or the CMake cache entry CMAKE_Fortran_COMPILER to the full
+  path to the compiler, or to the compiler name if it is in the PATH.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeOutput.log".
+See also "/home/paris/ngc/kev6/cmake_installer/installer_source_files/cmake-3.18.0/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeError.log".
+
