@@ -1,32 +1,24 @@
 #include <iostream>
-
 using namespace std;
 
-class Animal
-{
+class Animal{
   public:
     virtual void make_sound () const = 0;
 };
 
-void poke (Animal const & animal)
-{ animal.make_sound(); }
+void poke (Animal const & animal){ animal.make_sound(); }
 
-class Cow : public Animal
-{
+class Cow : public Animal{
   public:
-    virtual void make_sound () const override
-    { cout << "moo" << endl; }
+    void make_sound () const { cout << "moo" << endl; }
 };
 
-class FullCow : public Cow
-{
+class FullCow : public Cow{
   public:
-    virtual void make_sound () const override
-    { cout << "Ooof - I ate too much" << endl; }
+    void make_sound () const { cout << "Ooof - I ate too much" << endl; }
 };
 
-int main ()
-{
+int main (){
   Cow c;
   FullCow fc;
 
